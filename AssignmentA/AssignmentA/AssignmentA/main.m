@@ -11,7 +11,14 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        NSLog(@"Hello, World!");
+        NSLog(@"Enter a statement string");
+        
+        NSFileHandle *handle = [NSFileHandle fileHandleWithStandardInput];
+        NSData *input = [handle availableData];
+        NSString *inputReturn = [[NSString alloc] initWithData:input encoding:NSUTF8StringEncoding];
+        NSLog(@"Statement string entered is %@", inputReturn );
+        
+        
     }
     return 0;
 }
